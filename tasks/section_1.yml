@@ -169,6 +169,17 @@
    - scored
    - section1.12
 
+- name: 1.1.12 Ensure auditing is configured for Docker files and directories - /etc/containerd/config.toml
+  lineinfile: 
+    dest: /etc/audit/rules.d/audit.rules 
+    line: "-w /etc/containerd/config.toml -k docker"
+    state: present
+  notify: Reload auditd Rules
+  tags:
+   - scored
+   - section1.1.12
+
+
 - name: 1.13 Ensure auditing is configured for Docker files and directories - /usr/bin/docker-runc (Scored)
   lineinfile: 
     dest: /etc/audit/rules.d/audit.rules 
