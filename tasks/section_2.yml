@@ -206,17 +206,17 @@
    - scored
    - section2.12
 
-- name: "2.13 Ensure operations on legacy registry (v1) are Disabled (Scored)"
-  jsonpatch: 
-    src: "{{ config_file }}"
-    operations:
-    - op: add
-      path: "/disable-legacy-registry"
-      value: true
-  notify: Reload docker
-  tags:
-   - scored
-   - section2.13
+#- name: "2.13 Ensure operations on legacy registry (v1) are Disabled (Scored)"
+#  jsonpatch: 
+#    src: "{{ config_file }}"
+#    operations:
+#    - op: add
+#      path: "/disable-legacy-registry"
+#      value: true
+#  notify: Reload docker
+#  tags:
+#   - scored
+#   - section2.13
 
 - name: "2.14 Ensure live restore is Enabled (Scored)"
   jsonpatch:
