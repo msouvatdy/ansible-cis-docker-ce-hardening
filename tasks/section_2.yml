@@ -26,7 +26,7 @@
     operations:
     - op: add
       path: "/log-level"
-      value: "info"
+      value: info
   notify: Reload docker
   tags:
    - scored
@@ -158,7 +158,7 @@
     operations:
     - op: add
       path: "/cgroup-parent"
-      value: "/docker"
+      value: /docker
   notify: Reload docker
   tags:
    - scored
