@@ -68,7 +68,7 @@
    - section1.3
   when: ansible_distribution|lower == 'debian' or ansible_distribution|lower == 'ubuntu'
 
-- name: 1.3 Ensure auditing is configured for the docker daemon (Scored)
+- name: 1.1.3 Ensure auditing is configured for the docker daemon (Scored)
   lineinfile: 
     dest: /etc/audit/rules.d/audit.rules
     line: "-w /usr/bin/dockerd -k docker"
@@ -76,7 +76,17 @@
   notify: Reload auditd Rules
   tags:
    - scored
-   - section1.5
+   - section1.1.3
+
+- name: 1.1.4 Ensure auditing is configured for Docker files and directories - /run/containerd
+  lineinfile: 
+    dest: /etc/audit/rules.d/audit.rules
+    line: "-a exit,always -F path=/run/containerd -F perm=war -k docker"
+    state: present
+  notify: Reload auditd Rules
+  tags:
+   - scored
+   - section1.1.4
 
 - name: 1.5 Ensure auditing is configured for the docker daemon (Scored)
   lineinfile: 
