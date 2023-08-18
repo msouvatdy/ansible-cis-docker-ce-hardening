@@ -14,7 +14,7 @@
     operations:
     - op: add
       path: "/icc"
-      value: "false"
+      value: false
   notify: Reload docker
   tags:
    - scored
