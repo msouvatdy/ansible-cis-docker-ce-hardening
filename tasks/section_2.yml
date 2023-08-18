@@ -174,7 +174,7 @@
    - scored
    - section2.10
 
-- name: "2.11 Ensure that authorization for Docker client commands is enabled (Scored) (Not Implemented)"
+- name: "2.12 Ensure that authorization for Docker client commands is enabled (Scored) (Not Implemented)"
   jsonpatch: 
     src: "{{ config_file }}"
     operations:
@@ -187,7 +187,7 @@
    - scored
    - section2.11
 
-- name: "2.11 Ensure that authorization for Docker client commands is enabled (Scored) (Not Implemented)"
+- name: "2.12 Ensure that authorization for Docker client commands is enabled (Scored) (Not Implemented)"
   debug:
     msg: "Default TLS authorization set by 2.6"
   when: authorization_plugins is not defined or (authorization_plugins|length==0)
@@ -195,7 +195,7 @@
    - scored
    - section2.11
 
-- name: "2.12 Ensure centralized and remote logging is configured (Scored)"
+- name: "2.13 Ensure centralized and remote logging is configured (Scored)"
   jsonpatch: 
     src: "{{ config_file }}"
     operations:
@@ -208,10 +208,6 @@
    - scored
    - section2.12
 
-- name: "2.12 - Ensure that authorization for Docker client commands is enabled (Scored)"
-  tags:
-   - scored
-   - section2.12
 #- name: "2.13 Ensure operations on legacy registry (v1) are Disabled (Scored)"
 #  jsonpatch: 
 #    src: "{{ config_file }}"
