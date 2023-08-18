@@ -134,7 +134,7 @@
 - name: "2.9 Enable user namespace support (Scored)"
   lineinfile:
     path: "{{ item }}"
-    line: default:231072:65536
+    line: dockremap:231072:65536
   loop:
     - /etc/subgid
     - /etc/subuid
@@ -208,6 +208,10 @@
    - scored
    - section2.12
 
+- name: "2.12 - Ensure that authorization for Docker client commands is enabled (Scored)"
+  tags:
+   - scored
+   - section2.12
 #- name: "2.13 Ensure operations on legacy registry (v1) are Disabled (Scored)"
 #  jsonpatch: 
 #    src: "{{ config_file }}"
