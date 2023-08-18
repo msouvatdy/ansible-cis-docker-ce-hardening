@@ -10,7 +10,7 @@
     operations:
     - op: add
       path: "/selinux-enabled"
-      value: "true"
+      value: true
   notify: Reload docker
   tags:
    - scored
