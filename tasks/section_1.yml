@@ -189,3 +189,63 @@
   tags:
    - scored
    - section1.13
+
+- name: 1.13 Ensure auditing is configured for Docker files and directories - /usr/bin/docker-runc (Scored)
+  lineinfile: 
+    dest: /etc/audit/rules.d/audit.rules 
+    line: "-w /usr/bin/docker-runc -k docker"
+    state: present
+  notify: Reload auditd Rules
+  tags:
+   - scored
+   - section1.13
+
+- name: 1.1.14 Ensure auditing is configured for Docker files and directories - /usr/bin/containerd
+  lineinfile: 
+    dest: /etc/audit/rules.d/audit.rules 
+    line: "-w /usr/bin/containerd -k docker"
+    state: present
+  notify: Reload auditd Rules
+  tags:
+  - scored
+  - section1.14
+  
+- name: 1.1.15 Ensure auditing is configured for Docker files and directories - /usr/bin/containerd-shim
+  lineinfile: 
+    dest: /etc/audit/rules.d/audit.rules 
+    line: "-w /usr/bin/containerd-shim -k docker"
+    state: present
+  notify: Reload auditd Rules
+  tags:
+    - scored
+    - section1.15
+  
+- name: 1.1.16 Ensure auditing is configured for Docker files and directories - /usr/bin/containerd-shim-runc-v1
+  lineinfile: 
+    dest: /etc/audit/rules.d/audit.rules 
+    line: "-w /usr/bin/containerd-shim-runc-v1 -k docker"
+    state: present
+  notify: Reload auditd Rules
+  tags:
+   - scored
+   - section1.16
+
+- name: 1.1.17 Ensure auditing is configured for Docker files and directories - /usr/bin/containerd-shim-runc-v2
+  lineinfile: 
+    dest: /etc/audit/rules.d/audit.rules 
+    line: "-w /usr/bin/containerd-shim-runc-v2 -k docker"
+    state: present
+  notify: Reload auditd Rules
+  tags:
+   - scored
+   - section1.17
+
+- name: 1.1.18 Ensure auditing is configured for Docker files and directories - /usr/bin/runc
+  lineinfile: 
+    dest: /etc/audit/rules.d/audit.rules 
+    line: "-w /usr/bin/runc -k docker"
+    state: present
+  notify: Reload auditd Rules
+  tags:
+   - scored
+   - section1.18
