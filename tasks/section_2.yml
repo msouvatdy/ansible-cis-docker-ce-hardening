@@ -131,28 +131,30 @@
    - not_scored
    - section2.7
 
-# - name: "2.8 Enable user namespace support (Scored)"
-#   lineinfile:
-#     path: "{{ item }}"
-#     line: dockremap:231072:65536
-#   with_items:
-#     - /etc/subgid
-#     - /etc/subuid
-#   tags:
-#    - scored
-#    - section2.8
+- name: "2.9 Enable user namespace support (Scored)"
+  lineinfile:
+    path: "{{ item }}"
+    line: default:231072:65536
+  loop:
+    - /etc/subgid
+    - /etc/subuid
+  tags:
+   - scored
+   - section2.8
 
-# - name: "2.8 Enable user namespace support (Scored)"
-#   jsonpatch: 
-#     file: "{{ config_file }}"
-#     key: userns-remap
-#     value: default
-#   notify: Reload docker
-#   tags:
-#    - scored
-#    - section2.8
+- name: "2.9 Enable user namespace support (Scored)"
+  jsonpatch:
+    src: "{{ config_file }}"
+    operations:
+    - op: add
+      path: "/userns-remap"
+      value: default
+  notify: Reload docker
+  tags:
+   - scored
+   - section2.8
 
-- name: "2.9 Ensure the default cgroup usage has been confirmed (Scored)"
+- name: "2.10 Ensure the default cgroup usage has been confirmed (Scored)"
   jsonpatch: 
     src: "{{ config_file }}"
     operations:
