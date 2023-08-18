@@ -38,7 +38,7 @@
     operations:
     - op: add
       path: "/iptables"
-      value: "true"
+      value: true
   notify: Reload docker
   tags:
    - scored
@@ -74,7 +74,7 @@
         operations:
         - op: add
           path: "/tlsverify"
-          value: "true"
+          value: true
       notify: Reload docker
 
     - name: "2.6 Ensure TLS authentication for Docker daemon is configured (Scored)"
@@ -212,7 +212,7 @@
     operations:
     - op: add
       path: "/disable-legacy-registry"
-      value: "true"
+      value: true
   notify: Reload docker
   tags:
    - scored
@@ -224,7 +224,7 @@
     operations:
     - op: add
       path: "/live-restore"
-      value: "true"
+      value: true
   notify: Reload docker
   tags:
    - scored
@@ -236,7 +236,7 @@
     operations:
     - op: add
       path: "/userland-proxy"
-      value: "false"
+      value: false
   notify: Reload docker
   tags:
    - scored
@@ -261,7 +261,7 @@
     operations:
     - op: add
       path: "/experimental"
-      value: "false"
+      value: false
   notify: Reload docker
   tags:
    - scored
@@ -273,7 +273,7 @@
     operations:
     - op: add
       path: "/no-new-privileges"
-      value: "true"
+      value: true
   notify: Reload docker
   tags:
    - scored
